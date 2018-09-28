@@ -12,8 +12,8 @@
             <ul>
                 <li v-for='name in names'>{{name}}</li>
             </ul>
-                <input type="text" id="input" >
-                <button id="button">add name</button>
+                <input type="text" id="input" v-model="newName">
+                <button id="button" @click="addName ">add name</button>
           </div>
 
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -22,16 +22,26 @@
             var app = new Vue({
                             el: '#app',
                             data: {
-                                names: ['eslam','Ahmed','kiki']
+                                names: ['eslam','Ahmed','kiki'],
+                                newName : ''
                             },
 
-                            mounted() {
-                                document.querySelector('#button').addEventListener('click',()=>{
-                                    let name = document.querySelector('#input').value ;
+                        //     mounted() {
+                        //         document.querySelector('#button').addEventListener('click',()=>{
+                        //             let name = document.querySelector('#input').value ;
 
-                                    app.names.push(name);
-                        });
-                            }
+                        //             app.names.push(name);
+                        // });
+                        //     }
+                        methods : {
+                                addName(){
+                                    // alert('hola');
+
+                                    this.names.push(this.newName);
+
+                                    this.newName =  '' ;
+                                }
+                        },
 
 
                         

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+         <title>
+             test vue js
+         </title>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- <h1>
+                {{reversedMessage}}
+            </h1> -->
+            <h1>Everything</h1>
+            <ul>
+                <li v-for="task in tasks" :key="task.id" v-text="task.description"></li>
+            </ul>
+
+
+            <h1>
+                not completed
+            </h1>
+            <ul>
+                    <li v-for="task in incompletedName" :key="task.id" v-text="task.description"></li>
+            </ul>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script type="text/javascript">
+
+            var app = new Vue({
+                            el: '#app',
+                            data: {
+                                // message : 'hello eslam'
+                                tasks: [
+                                    {description: 'eslam eslam' , completed: true},
+                                    {description: 'eslam test1' , completed: false},
+                                    {description: 'eslam test2' , completed: true},
+                                    {description: 'eslam test3' , completed: false},
+                                    {description: 'eslam test4' , completed: false},
+                                ]
+                            },
+
+                            computed : {
+                                // reversedMessage(){
+                                //     return this.message.split('').reverse().join('');
+                                // }
+                                incompletedName(){
+                                    return this.tasks.filter(task => ! task.completed);
+                                }
+
+                            }                  
+                        })
+
+
+
+                      
+        </script>
+    </body>
+</html>

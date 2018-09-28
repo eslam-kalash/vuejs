@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+         <title>
+             test vue js
+         </title>
+         <style>
+             .blue{
+                 background-color: blue;
+             }
+             .yellow{
+                 background-color: yellow ;
+             }
+             .is-loading{
+                 background-color: aquamarine;
+             }
+         
+         </style>
+    </head>
+
+    <body>
+        <div id="app">
+        
+
+            <h1 :class="className">test Color change</h1>
+
+            <button @click="changeColor" :title="title">Hover on me</button>
+            <button :class="{ 'is-loading' : isLoading }">test loading</button>
+
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script type="text/javascript">
+
+            var app = new Vue({
+                        
+                        el: '#app',
+
+                        data : {
+                             title : 'hello everyone' ,
+                             className : 'yellow',
+                             isLoading : false,
+
+                        },
+                        methods: {
+                            changeColor(){
+                                this.className = 'blue';
+                                this.isLoading = true;
+
+                            }
+                        },
+                        
+                        })
+
+
+
+                      
+        </script>
+    </body>
+</html>
